@@ -1,0 +1,171 @@
+<!-- IDs: pageTitle, breadcrumb, logoutTop, sidebarLogout, home, login, register, dashboard, services, accountSecurityPage, atmCardPage, mobilePage, addressPage, paymentPage, statementPage, pinPage, newAccountPage, kycPage, notificationsPage, chatPage, transactions, tracking, about, contact, homeLogin, homeDashboard, loginUsername, loginPassword, loginMessage, registerName, registerEmail, registerUsername, registerPassword, registerConfirm, passwordStrength, registerMessage, welcomeName, balanceValue, cardStatus, accountStatus, dashboardNotice, securityReason, securityMessage, cardType, cardMessage, mobileNumber, mobileMessage, addressCity, addressPin, addressMessage, receiverName, receiverUpi, transferAmount, transferPin, transferMessage, statementOutput, pinCurrent, pinNew, pinConfirm, pinMessage, accountType, accountReason, accountMessage, kycId, kycMessage, notificationList, transactionSearch, transactionList, applicationId, applicationList, trackResult, chatHistory, chatInput, chatMessage, contactEmail, contactMessage, contactResult. onclick functions: showPage, loginUser, registerUser, fingerprintLogin, forgotPassword, logoutUser, submitSecurityRequest, applyCard, updateMobile, updateAddress, transferMoney, viewStatement, generatePin, openAccount, verifyKYC, showNotifications, showTransactions, trackApplication, chatBot, toggleTheme -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#110d1d">
+  <meta name="description" content="SmartBank AI is a student-built digital banking demo. No real money or banking services are involved.">
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22SmartBank%20AI%22%2C%22short_name%22%3A%22SmartBank%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23110d1d%22%2C%22theme_color%22%3A%22%237c5cff%22%7D">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='.9em' font-size='56'%3E🏦%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>SmartBank AI | Demo Banking</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#home" onclick="showPage('home')"><span class="brand-icon">🏦</span><span><strong>SmartBank AI</strong><small>Digital Banking</small></span></a>
+    <p class="menu-label">MAIN MENU</p>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home" onclick="showPage('home')">⌂ <span>Home</span></a>
+      <a href="#dashboard" onclick="showPage('dashboard')">▦ <span>Dashboard</span></a>
+      <a href="#services" onclick="showPage('services')">◇ <span>Services</span></a>
+      <a href="#transactions" onclick="showPage('transactions')">↔ <span>Transactions</span></a>
+      <a href="#tracking" onclick="showPage('tracking')">◷ <span>Application Tracking</span></a>
+      <a href="#about" onclick="showPage('about')">ⓘ <span>About</span></a>
+      <a href="#contact" onclick="showPage('contact')">✉ <span>Contact</span></a>
+      <a href="#login" onclick="showPage('login')">↪ <span>Login</span></a>
+      <a href="#register" onclick="showPage('register')">＋ <span>Register</span></a>
+      <a href="#logout" onclick="logoutUser()" id="sidebarLogout" class="hidden">⇥ <span>Logout</span></a>
+    </nav>
+    <div class="support-card"><span class="support-icon">✦</span><strong>Smart AI Support</strong><p>Have a question? Our demo assistant is here to help.</p><button class="small-button" type="button" onclick="showPage('chatPage')">Chat with AI</button></div>
+    <p class="sidebar-footnote">Student project · Demo only</p>
+  </aside>
+
+  <main class="main-area">
+    <header class="topbar">
+      <div><p class="breadcrumb" id="breadcrumb">Welcome</p><h1 id="pageTitle">SmartBank AI</h1></div>
+      <div class="top-actions"><span class="demo-label">🔒 Demo Banking</span><button class="icon-button" type="button" onclick="toggleTheme()" aria-label="Toggle light or dark theme" title="Toggle theme">☼</button><span class="avatar" aria-label="Current user">SB</span><button class="button secondary top-logout hidden" id="logoutTop" type="button" onclick="logoutUser()">Logout</button></div>
+    </header>
+
+    <div class="page-content">
+      <section class="content-section active-page" id="home">
+        <div class="hero"><div class="hero-copy"><span class="eyebrow">YOUR MONEY, MADE SIMPLE</span><h2>Banking made<br><span>smarter.</span></h2><p>A friendly, secure-looking banking experience built for learning. Explore digital banking features in a safe demo environment.</p><div class="button-row"><button class="button" id="homeLogin" type="button" onclick="showPage('login')">Login to Continue</button><button class="button secondary" id="homeDashboard" type="button" onclick="showPage('dashboard')">Open Dashboard</button></div><small class="demo-note">DEMO ONLY · No real accounts, cards, or money</small></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-bank">🏦</div><div class="float-card">✦ &nbsp; Banking, reimagined</div><div class="float-balance"><span>Demo balance</span><strong>₹25,000</strong></div></div></div>
+        <div class="section-heading"><div><span class="eyebrow">BUILT FOR YOU</span><h2>Everything in one place</h2></div></div>
+        <div class="feature-grid"><article class="panel"><span class="feature-icon">⌁</span><h3>Simple transfers</h3><p>Try a simulated transfer flow with validation and a receipt.</p></article><article class="panel"><span class="feature-icon">◈</span><h3>Stay in control</h3><p>Explore account security, card requests, and notification settings.</p></article><article class="panel"><span class="feature-icon">✦</span><h3>AI assistance</h3><p>Ask the rule-based demo chatbot about common banking topics.</p></article></div>
+      </section>
+
+      <section class="content-section" id="login"><div class="auth-wrap"><div class="auth-intro"><span class="eyebrow">WELCOME BACK</span><h2>Sign in to your<br>SmartBank account</h2><p>Use your registered demo username and password. This project does not connect to a real bank.</p></div><form class="panel form-panel" onsubmit="loginUser(); return false;"><h2>Login</h2><label for="loginUsername">Username</label><input id="loginUsername" autocomplete="username" required><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" required><button class="button full-width" type="submit">Login</button><button class="text-button" type="button" onclick="forgotPassword()">Forgot Password?</button><p class="form-divider">or try the demo fingerprint</p><button class="fingerprint" type="button" onclick="fingerprintLogin()">◎ &nbsp; Demo fingerprint login</button><p class="message" id="loginMessage" aria-live="polite"></p><p class="form-bottom">New here? <a href="#register" onclick="showPage('register')">Create Account</a></p></form></div></section>
+
+      <section class="content-section" id="register"><div class="auth-wrap"><div class="auth-intro"><span class="eyebrow">GET STARTED</span><h2>Your smarter<br>banking starts here</h2><p>Create a local demo account. Your password is stored as a SHA-256 hash in this browser.</p></div><form class="panel form-panel" onsubmit="registerUser(); return false;"><h2>Create account</h2><label for="registerName">Full name</label><input id="registerName" autocomplete="name" required><label for="registerEmail">Email</label><input id="registerEmail" type="email" autocomplete="email" required><label for="registerUsername">Username</label><input id="registerUsername" autocomplete="username" required><label for="registerPassword">Password</label><input id="registerPassword" type="password" autocomplete="new-password" minlength="6" oninput="registerUser('strength')" required><div class="strength-track"><span id="passwordStrength"></span></div><label for="registerConfirm">Confirm password</label><input id="registerConfirm" type="password" autocomplete="new-password" required><button class="button full-width" type="submit">Register</button><p class="message" id="registerMessage" aria-live="polite"></p><p class="form-bottom">Already registered? <a href="#login" onclick="showPage('login')">Login</a></p></form></div></section>
+
+      <section class="content-section" id="dashboard"><div class="welcome-row"><div><span class="eyebrow">YOUR OVERVIEW</span><h2>Welcome, <span id="welcomeName">there</span></h2><p>Here’s what’s happening with your demo account.</p></div><span class="demo-pill">DEMO ACCOUNT</span></div><div class="dashboard-grid"><article class="balance-card"><div class="balance-top"><span>Available demo balance</span><span class="balance-symbol">₹</span></div><strong id="balanceValue">₹25,000</strong><p>Indicative only · Not real money</p></article><article class="panel status-card"><span class="card-eyebrow">ATM CARD</span><div class="status-value"><span class="status-dot"></span><strong id="cardStatus">Not requested</strong></div><p>Your demo card status appears here.</p><button class="text-button" type="button" onclick="showPage('atmCardPage')">Manage card →</button></article><article class="panel status-card"><span class="card-eyebrow">ACCOUNT STATUS</span><div class="status-value"><span class="status-dot"></span><strong id="accountStatus">Active</strong></div><p>Account controls for this demo profile.</p><button class="text-button" type="button" onclick="showPage('accountSecurityPage')">Security settings →</button></article></div><p class="message" id="dashboardNotice" aria-live="polite"></p><div class="section-heading"><div><span class="eyebrow">DO MORE</span><h2>Quick Banking Actions</h2></div><button class="text-button" type="button" onclick="showPage('services')">All services →</button></div><div class="service-grid quick-grid"><button class="service-card" type="button" onclick="showPage('accountSecurityPage')"><span>◈</span>Account Security</button><button class="service-card" type="button" onclick="showPage('atmCardPage')"><span>▤</span>ATM Card</button><button class="service-card" type="button" onclick="showPage('mobilePage')"><span>⌕</span>Mobile Update</button><button class="service-card" type="button" onclick="showPage('addressPage')"><span>⌖</span>Address Update</button><button class="service-card" type="button" onclick="showPage('paymentPage')"><span>↗</span>Send Money</button><button class="service-card" type="button" onclick="showPage('statementPage')"><span>▧</span>Statement</button><button class="service-card" type="button" onclick="showPage('pinPage')"><span>⠿</span>ATM PIN</button><button class="service-card" type="button" onclick="showPage('newAccountPage')"><span>＋</span>New Account</button><button class="service-card" type="button" onclick="showPage('kycPage')"><span>✓</span>KYC</button><button class="service-card" type="button" onclick="showPage('notificationsPage')"><span>♧</span>Notifications</button><button class="service-card" type="button" onclick="showPage('chatPage')"><span>✦</span>AI Chatbot</button><button class="service-card" type="button" onclick="showPage('transactions')"><span>↔</span>Transactions</button></div></section>
+
+      <section class="content-section" id="services"><div class="section-heading"><div><span class="eyebrow">SMARTBANK SERVICES</span><h2>What would you like to do?</h2><p>All actions are simulated and saved only in this browser.</p></div></div><div class="service-grid"><button class="service-card" type="button" onclick="showPage('accountSecurityPage')"><span>◈</span>Account Security</button><button class="service-card" type="button" onclick="showPage('atmCardPage')"><span>▤</span>ATM Card</button><button class="service-card" type="button" onclick="showPage('mobilePage')"><span>⌕</span>Mobile Update</button><button class="service-card" type="button" onclick="showPage('addressPage')"><span>⌖</span>Address Update</button><button class="service-card" type="button" onclick="showPage('paymentPage')"><span>↗</span>Send Money</button><button class="service-card" type="button" onclick="showPage('statementPage')"><span>▧</span>Statement</button><button class="service-card" type="button" onclick="showPage('pinPage')"><span>⠿</span>ATM PIN</button><button class="service-card" type="button" onclick="showPage('newAccountPage')"><span>＋</span>New Account</button><button class="service-card" type="button" onclick="showPage('kycPage')"><span>✓</span>KYC</button><button class="service-card" type="button" onclick="showPage('notificationsPage')"><span>♧</span>Notifications</button><button class="service-card" type="button" onclick="showPage('chatPage')"><span>✦</span>AI Chatbot</button><button class="service-card" type="button" onclick="showPage('transactions')"><span>↔</span>Transactions</button></div></section>
+
+      <section class="content-section" id="accountSecurityPage"><div class="page-heading"><span class="eyebrow">ACCOUNT CONTROLS</span><h2>Account Security</h2><p>Lock or unlock your demo profile. A locked profile cannot make demo transfers.</p></div><form class="panel form-panel service-form" onsubmit="submitSecurityRequest(); return false;"><label for="securityReason">Reason (optional when unlocking)</label><textarea id="securityReason" rows="3" placeholder="Tell us why you want to lock your account"></textarea><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Lock / Unlock Account</button></div><p class="message" id="securityMessage" aria-live="polite"></p></form></section>
+
+      <section class="content-section" id="atmCardPage"><div class="page-heading"><span class="eyebrow">CARD SERVICES</span><h2>ATM Card</h2><p>Apply for a simulated card; no real card details are created.</p></div><form class="panel form-panel service-form" onsubmit="applyCard(); return false;"><label for="cardType">Card type</label><select id="cardType"><option>Classic</option><option>Platinum</option></select><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Apply for demo card</button></div><p class="message" id="cardMessage" aria-live="polite"></p><div class="atm-visual"><span>🏦 SMARTBANK AI</span><span class="chip"></span><strong>•••• &nbsp;•••• &nbsp;•••• &nbsp; DEMO</strong><small>DEMO ONLY · No real card number</small></div></form></section>
+
+      <section class="content-section" id="mobilePage"><div class="page-heading"><span class="eyebrow">PROFILE SERVICES</span><h2>Update Mobile Number</h2><p>Enter a valid 10-digit Indian mobile number.</p></div><form class="panel form-panel service-form" onsubmit="updateMobile(); return false;"><label for="mobileNumber">Mobile number</label><input id="mobileNumber" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit number" required><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Update mobile</button></div><p class="message" id="mobileMessage" aria-live="polite"></p></form></section>
+
+      <section class="content-section" id="addressPage"><div class="page-heading"><span class="eyebrow">PROFILE SERVICES</span><h2>Update Address</h2><p>Update your demo city and 6-digit PIN code.</p></div><form class="panel form-panel service-form" onsubmit="updateAddress(); return false;"><label for="addressCity">City</label><input id="addressCity" autocomplete="address-level2" required><label for="addressPin">PIN code</label><input id="addressPin" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Update address</button></div><p class="message" id="addressMessage" aria-live="polite"></p></form></section>
+
+      <section class="content-section" id="paymentPage"><div class="page-heading"><span class="eyebrow">DEMO PAYMENTS</span><h2>Send Money</h2><p>Simulated UPI transfer. This does not move real funds.</p></div><form class="panel form-panel service-form" onsubmit="transferMoney(); return false;"><label for="receiverName">Receiver name</label><input id="receiverName" required><label for="receiverUpi">Demo UPI ID</label><input id="receiverUpi" placeholder="name@demo" required><label for="transferAmount">Amount (₹)</label><input id="transferAmount" type="number" min="1" step="0.01" required><label for="transferPin">Demo ATM PIN</label><input id="transferPin" type="password" inputmode="numeric" maxlength="4" required><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Send demo money</button></div><p class="message" id="transferMessage" aria-live="polite"></p></form></section>
+
+      <section class="content-section" id="statementPage"><div class="page-heading"><span class="eyebrow">ACCOUNT ACTIVITY</span><h2>Statement</h2><p>View or download your demo transaction history as CSV.</p></div><div class="panel form-panel service-form"><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="button" onclick="viewStatement()">View statement</button><button class="button secondary" type="button" onclick="viewStatement('csv')">Download CSV</button></div><ul id="statementOutput" class="list-stack" aria-live="polite"></ul></div></section>
+
+      <section class="content-section" id="pinPage"><div class="page-heading"><span class="eyebrow">CARD SERVICES</span><h2>Change ATM PIN</h2><p>Set a 4-digit demo PIN. It is not a real banking credential. The initial demo PIN is 1234.</p></div><form class="panel form-panel service-form" onsubmit="generatePin(); return false;"><label for="pinCurrent">Current demo PIN</label><input id="pinCurrent" type="password" inputmode="numeric" maxlength="4" required><label for="pinNew">New 4-digit PIN</label><input id="pinNew" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required><label for="pinConfirm">Confirm new PIN</label><input id="pinConfirm" type="password" inputmode="numeric" maxlength="4" required><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Change PIN</button></div><p class="message" id="pinMessage" aria-live="polite"></p></form></section>
+
+      <section class="content-section" id="newAccountPage"><div class="page-heading"><span class="eyebrow">ACCOUNT SERVICES</span><h2>Open a New Account</h2><p>Submit an application for an additional demo account.</p></div><form class="panel form-panel service-form" onsubmit="openAccount(); return false;"><label for="accountType">Account type</label><select id="accountType"><option>Savings</option><option>Current</option><option>Student</option></select><label for="accountReason">What will you use it for?</label><textarea id="accountReason" rows="3" required></textarea><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Submit application</button></div><p class="message" id="accountMessage" aria-live="polite"></p></form></section>
+
+      <section class="content-section" id="kycPage"><div class="page-heading"><span class="eyebrow">VERIFICATION</span><h2>Demo KYC</h2><p>Use a fictional identifier only. Never enter real identity information.</p></div><form class="panel form-panel service-form" onsubmit="verifyKYC(); return false;"><label for="kycId">Fictional demo ID</label><input id="kycId" placeholder="e.g. DEMO123456" required><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button" type="submit">Verify demo KYC</button></div><p class="message" id="kycMessage" aria-live="polite"></p></form></section>
+
+      <section class="content-section" id="notificationsPage"><div class="page-heading"><span class="eyebrow">STAY IN THE LOOP</span><h2>Notifications</h2><p>Updates created by your demo banking activity.</p></div><div class="panel list-panel"><div class="button-row"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button><button class="button secondary" type="button" onclick="showNotifications('clear')">Clear all</button></div><ul id="notificationList" class="list-stack"></ul></div></section>
+
+      <section class="content-section" id="chatPage"><div class="page-heading"><span class="eyebrow">SMART AI SUPPORT</span><h2>How can I help?</h2><p>Ask about your balance, transfers, PIN, account security, or applications.</p></div><div class="panel chat-panel"><div id="chatHistory" class="chat-history" aria-live="polite"></div><form class="chat-form" onsubmit="chatBot(); return false;"><label class="sr-only" for="chatInput">Message the demo assistant</label><input id="chatInput" placeholder="Type a message and press Enter…" autocomplete="off" required><button class="button" type="submit">Send</button></form><p class="message" id="chatMessage" aria-live="polite"></p><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button></div></section>
+
+      <section class="content-section" id="transactions"><div class="page-heading"><span class="eyebrow">ACCOUNT ACTIVITY</span><h2>Transactions</h2><p>Search your simulated transaction history.</p></div><div class="panel list-panel"><div class="list-toolbar"><input id="transactionSearch" placeholder="Search transactions…" oninput="showTransactions()" aria-label="Search transactions"><button class="button secondary back-button" type="button" onclick="showPage('dashboard')">← Back</button></div><ul id="transactionList" class="list-stack"></ul></div></section>
+
+      <section class="content-section" id="tracking"><div class="page-heading"><span class="eyebrow">APPLICATIONS</span><h2>Application Tracking</h2><p>Track a request by its application ID or browse your applications.</p></div><div class="panel list-panel"><form class="tracking-form" onsubmit="trackApplication(); return false;"><label class="sr-only" for="applicationId">Application ID</label><input id="applicationId" placeholder="APP…" required><button class="button" type="submit">Track</button></form><p class="message" id="trackResult" aria-live="polite"></p><div id="applicationList" class="list-stack"></div></div></section>
+
+      <section class="content-section" id="about"><div class="page-heading"><span class="eyebrow">ABOUT THIS PROJECT</span><h2>Banking for learning</h2><p>SmartBank AI is a student project that demonstrates common digital banking interface patterns with browser-only storage.</p></div><div class="panel"><h3>Demo safety</h3><p>This website is not a bank and does not provide financial services. It does not process real payments, issue real cards, or verify real identities. Do not enter real passwords, card details, PINs, or identity information.</p><span class="demo-pill">DEMO ONLY</span></div></section>
+
+      <section class="content-section" id="contact"><div class="page-heading"><span class="eyebrow">WE’RE HERE TO HELP</span><h2>Contact</h2><p>Send a note about this student demo.</p></div><form class="panel form-panel service-form" onsubmit="document.getElementById('contactResult').textContent='Thanks! This demo contact form does not send data.'; return false;"><label for="contactEmail">Email</label><input id="contactEmail" type="email" required><label for="contactMessage">Message</label><textarea id="contactMessage" rows="4" required></textarea><button class="button" type="submit">Send message</button><p class="message" id="contactResult" aria-live="polite"></p></form></section>
+    </div>
+    <footer><span>© 2025 SmartBank AI · Student project</span><span>DEMO ONLY · No real banking services</span></footer>
+  </main>
+</body>
+</html>
+<!-- Dashboard / Services shortcut -->
+<button class="service-card" type="button" onclick="showPage('loanCalculatorPage')">
+  <span>％</span>Loan EMI Calculator
+</button>
+
+<!-- Calculator page -->
+<section class="content-section" id="loanCalculatorPage">
+    <section class="content-section" id="spendingChartPage">
+  <div class="page-heading">
+    <span class="eyebrow">DEMO SPENDING INSIGHTS</span>
+    <h2>Spending Charts</h2>
+    <p>Monthly demo transfer outflows for the last six months. This chart uses only transactions in this browser.</p>
+  </div>
+  <div class="panel spending-panel">
+    <p id="spendingSummary" class="spending-summary" aria-live="polite"></p>
+    <div class="chart-wrap">
+      <canvas id="spendingChart" role="img"
+        aria-label="Bar chart showing demo transfer spending across the last six months">
+        Your browser does not support canvas charts.
+      </canvas>
+    </div>
+    <p class="chart-caption">Only demo transfers are included. No real financial data is used.</p>
+    <button class="button secondary back-button" type="button"
+      onclick="showPage('dashboard')">← Back</button>
+  </div>
+</section>
+  <div class="page-heading">
+    <span class="eyebrow">LOAN PLANNING · DEMO ONLY</span>
+    <h2>Loan EMI Calculator</h2>
+    <p>Estimate a monthly payment using the reducing-balance formula. This is an educational estimate, not a loan offer.</p>
+  </div>
+
+  <form class="panel form-panel service-form" onsubmit="calculateLoanEMI(); return false;">
+    <label for="loanAmount">Loan amount (₹)</label>
+    <input id="loanAmount" type="number" min="1" step="1"
+           inputmode="decimal" placeholder="e.g. 500000" required>
+
+    <label for="loanRate">Annual interest rate (%)</label>
+    <input id="loanRate" type="number" min="0" step="0.01"
+           inputmode="decimal" placeholder="e.g. 8.5" required>
+
+    <label for="loanTenure">Tenure (months)</label>
+    <input id="loanTenure" type="number" min="1" max="600" step="1"
+           inputmode="numeric" placeholder="e.g. 60" required>
+
+    <div class="button-row">
+      <button class="button secondary back-button" type="button"
+              onclick="showPage('dashboard')">← Back</button>
+      <button class="button" type="submit">Calculate EMI</button>
+    </div>
+
+    <div id="emiResult" class="list-stack" aria-live="polite"></div>
+  </form>
+</section>
+<div class="feature-grid">
+  <button class="panel feature-card" type="button" onclick="showPage('paymentPage')">
+    <span class="feature-icon">⌁</span>
+    <h3>Simple transfers</h3>
+    <p>Try a simulated transfer flow with validation and a receipt.</p>
+    <span class="feature-link">Explore transfers →</span>
+  </button>
+
+  <button class="panel feature-card" type="button" onclick="showPage('accountSecurityPage')">
+    <span class="feature-icon">◈</span>
+    <h3>Stay in control</h3>
+    <p>Explore account security, card requests, and notification settings.</p>
+    <span class="feature-link">Account security →</span>
+  </button>
+
+  <button class="panel feature-card" type="button" onclick="showPage('chatPage')">
+    <span class="feature-icon">✦</span>
+    <h3>AI assistance</h3>
+    <p>Ask the rule-based demo chatbot about common banking topics.</p>
+    <span class="feature-link">Chat with AI →</span>
+  </button>
+</div>
+<button class="service-card" type="button" onclick="showPage('spendingChartPage')">
+  <span>▥</span>Spending Charts
+</button>
